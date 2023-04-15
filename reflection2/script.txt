@@ -1,0 +1,26 @@
+create type level2
+add to level2 number price
+
+create type level1
+add to level1 level2 embed
+
+create type level0
+add to level0 level1 embed
+add to level0 number number
+add to level0 string str
+
+level2 grandson
+level1 son
+level0 father
+
+grandson.price = 200
+son.embed = grandson
+father.embed = son
+
+father.embed.embed.price = 400
+father.number = 1000
+father.str = "asdads"
+
+
+print types
+print father
